@@ -48,3 +48,18 @@ ORDER BY PRICE_GROUP ASC;
 
 흠...오류가 계속 난다...뭐지???
 일단 내일 다시 한번 풀어봐야겠다
+
+정답
+
+SELECT
+    FLOOR(PRICE / 10000) * 10000 AS PRICE_GROUP,
+    COUNT(*) AS PRODUCTS
+FROM PRODUCT
+GROUP BY PRICE_GROUP
+ORDER BY PRICE_GROUP;
+
+FLOOR(PRICE / 10000): 가격을 만원 단위로 나눈 후, FLOOR 함수로 내림 처리하여 만원 단위의 정수를 만듭니다. 예를 들어, 가격이 17,000원이면 FLOOR(17000 / 10000) = 1이 됩니다.
+FLOOR(PRICE / 10000) * 10000: 다시 10,000원을 곱해 가격대를 만원 단위로 표시합니다. 이로 인해 17,000원은 10,000원, 25,000원은 20,000원으로 변환됩니다.
+COUNT(*): 각 가격대에 속하는 상품의 개수를 계산합니다.
+GROUP BY PRICE_GROUP: 만원 단위로 그룹화합니다.
+ORDER BY PRICE_GROUP: 결과를 가격대의 최소 금액 기준으로 오름차순 정렬합니다.
