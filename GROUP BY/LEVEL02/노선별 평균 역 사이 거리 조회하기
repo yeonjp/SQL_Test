@@ -48,7 +48,7 @@ ORDER BY ROUTE DESC, TOTAL_DISTANCE DESC;
 틀린 이유
 1. CONCAT 안쓰고 그냥 돌려서 Km 미작성
 2. SUM(D_BETWEEN_DIST)인데 COUNT로 해버림.....
-
+3. 반올림 숫자도 잘못 입력했다...ㅎ.ㅎ...
 정답
 SELECT 
     ROUTE, 
